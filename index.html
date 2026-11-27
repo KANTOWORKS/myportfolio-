@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b08">
+<meta name="description" content="KANTO WORKS - Web Developer Portfolio">
+<title>KANTO WORKS | Web Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #050b08;
+    --panel: #0c1911;
+    --green: #39ff14;
+    --light-green: #a3ff7a;
+    --white: #f2fff4;
+    --gray: #91a495;
+    --border: rgba(57,255,20,.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 88%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(57,255,20,.025) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(57,255,20,.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(5,11,8,.9);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--green);
+    text-shadow: 0 0 15px var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--gray);
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+    text-shadow: 0 0 12px var(--green);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--green);
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 0 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    right: -150px;
+    top: 100px;
+    background: var(--green);
+    opacity: .07;
+    filter: blur(160px);
+    border-radius: 50%;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--light-green);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--green);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .3; }
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(45px,7vw,85px);
+    line-height: 1.12;
+    letter-spacing: -3px;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(57,255,20,.5);
+}
+
+.hero-subtitle {
+    color: var(--light-green);
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 22px;
+    letter-spacing: 3px;
+}
+
+.hero-content p {
+    color: var(--gray);
+    max-width: 570px;
+    line-height: 1.9;
+    margin: 22px 0 32px;
+    font-size: 15px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.primary {
+    background: var(--green);
+    color: #041006;
+    box-shadow: 0 0 20px rgba(57,255,20,.25);
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px rgba(57,255,20,.6);
+}
+
+.secondary {
+    border: 1px solid var(--border);
+    color: var(--green);
+}
+
+.secondary:hover {
+    background: rgba(57,255,20,.08);
+    border-color: var(--green);
+}
+
+/* PROFILE */
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.profile-glow {
+    width: min(320px, 100%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 8px;
+    background: conic-gradient(
+        var(--green),
+        #102b16,
+        var(--light-green),
+        #102b16,
+        var(--green)
+    );
+    box-shadow:
+        0 0 25px rgba(57,255,20,.4),
+        0 0 70px rgba(57,255,20,.15);
+    animation: glow 5s linear infinite;
+}
+
+@keyframes glow {
+    50% {
+        box-shadow:
+        0 0 40px rgba(57,255,20,.65),
+        0 0 90px rgba(57,255,20,.2);
+    }
+}
+
+.profile-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #07120b;
+    border: 5px solid #07120b;
+}
+
+.profile-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-caption {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--green);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px var(--green);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 100px 0;
+}
+
+.section-label {
+    color: var(--green);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px,5vw,42px);
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: var(--green);
+}
+
+.section-desc {
+    color: var(--gray);
+    max-width: 650px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    color: var(--gray);
+    line-height: 2;
+    font-size: 15px;
+}
+
+.about-card {
+    padding: 35px;
+    background: linear-gradient(145deg,#102218,#09130d);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.about-card h3 {
+    color: var(--green);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    color: var(--gray);
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 30px;
+    border-radius: 9px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--green);
+    box-shadow: 0 0 25px rgba(57,255,20,.1);
+}
+
+.skill-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    margin-bottom: 12px;
+}
+
+.skill-card p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--green);
+    box-shadow: 0 0 25px rgba(57,255,20,.1);
+}
+
+.project-image {
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(57,255,20,.4);
+    transform: rotate(45deg);
+    box-shadow: 0 0 35px rgba(57,255,20,.15);
+}
+
+.project-image h2 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    color: var(--green);
+    text-shadow: 0 0 18px var(--green);
+    letter-spacing: 3px;
+}
+
+.project-one {
+    background: radial-gradient(circle,#153d20,#050b08 75%);
+}
+
+.project-two {
+    background: radial-gradient(circle,#0c321d,#020704 75%);
+}
+
+.project-info {
+    padding: 27px;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.project-info p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.project-tag {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    border: 1px solid var(--border);
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    padding: 65px 25px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: radial-gradient(circle at center,#102417,#08120c);
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(26px,5vw,42px);
+    margin-bottom: 20px;
+}
+
+.contact-box h2 span {
+    color: var(--green);
+}
+
+.contact-box p {
+    max-width: 550px;
+    margin: 0 auto 30px;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+    font-size: 12px;
+}
+
+footer span {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #245a25;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green);
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #07110a;
+        padding: 15px 6%;
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile-wrapper {
+        grid-row: 1;
+        margin-bottom: 20px;
+    }
+
+    .profile-glow {
+        width: min(240px,75vw);
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+<nav class="container">
+
+    <a href="#home" class="logo">
+        KANTO<span>WORKS.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+</nav>
+</header>
+
+<main>
+
+<!-- HOME / PROFILE -->
+
+<section class="hero" id="home">
+<div class="container">
+
+<div class="hero-grid">
+
+    <div class="hero-content reveal">
+
+        <div class="availability">
+            <span class="dot"></span>
+            WELCOME TO MY DIGITAL SPACE
+        </div>
+
+        <h1>
+            KANTO<br>
+            <span>WORKS.</span>
+        </h1>
+
+        <div class="hero-subtitle">
+            WEB DEVELOPER
+        </div>
+
+        <p>
+            Turning creative ideas into digital experiences.
+            Building modern websites with clean designs,
+            innovative concepts, and attention to detail.
+            Welcome to KANTO WORKS.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">
+                EXPLORE PROJECTS ↗
+            </a>
+
+            <a href="#about" class="btn secondary">
+                ABOUT ME
+            </a>
+        </div>
+
+    </div>
+
+    <!-- PROFILE IMAGE -->
+
+    <div class="profile-wrapper reveal">
+
+        <div>
+            <div class="profile-glow">
+                <div class="profile-inner">
+
+                    <img
+                    src="https://plain-apac-prod-public.komododecks.com/202611/27/LMVbi7aJIx8CYjWAtN4n/image.png"
+                    alt="KANTO WORKS Profile Logo"
+                    onerror="this.onerror=null;this.src='https://kommodo.ai/i/LMVbi7aJIx8CYjWAtN4n';"
+                    >
+
+                </div>
+            </div>
+
+            <div class="profile-caption">
+                KANTO WORKS
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container reveal">
+
+    <div class="section-label">01 / ABOUT</div>
+
+    <h2 class="section-title">
+        About <span>KANTO WORKS.</span>
+    </h2>
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            KANTO WORKS is a personal web development
+            brand focused on creating modern, functional,
+            and visually engaging digital experiences.
+
+            <br><br>
+
+            I enjoy exploring web technologies, developing
+            creative concepts, and transforming ideas into
+            meaningful online projects.
+
+            <br><br>
+
+            My approach combines creativity, continuous
+            learning, and attention to detail.
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>KANTO WORKS.</h3>
+
+            <p>
+                NAME: EMIEL JUNE<br>
+                POSITION: WEB DEVELOPER<br>
+                FOCUS: WEB DEVELOPMENT<br>
+                STYLE: DARK / NEON<br>
+                BRAND: KANTO WORKS
+            </p>
+
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+<div class="container reveal">
+
+    <div class="section-label">02 / EXPERTISE</div>
+
+    <h2 class="section-title">
+        My <span>Skills.</span>
+    </h2>
+
+    <p class="section-desc">
+        Technologies and creative areas I am exploring
+        and developing.
+    </p>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h3>HTML</h3>
+            <p>
+                Creating the structure and foundation
+                of modern websites.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <h3>CSS</h3>
+            <p>
+                Designing layouts, responsive interfaces,
+                and visual experiences.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>
+                Adding interactive features and dynamic
+                functionality to websites.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+<div class="container reveal">
+
+    <div class="section-label">03 / PORTFOLIO</div>
+
+    <h2 class="section-title">
+        Featured <span>Projects.</span>
+    </h2>
+
+    <p class="section-desc">
+        A collection of creative concepts and development work.
+    </p>
+
+    <div class="projects-grid">
+
+        <article class="project-card">
+
+            <div class="project-image project-one">
+                <h2>KANTO<br>WEB DEV.</h2>
+            </div>
+
+            <div class="project-info">
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Website development focused on modern
+                    layouts, responsive design, and
+                    user-friendly interfaces.
+                </p>
+
+                <span class="project-tag">
+                    HTML / CSS / JAVASCRIPT
+                </span>
+
+            </div>
+        </article>
+
+        <article class="project-card">
+
+            <div class="project-image project-two">
+                <h2>GREEN<br>BLACK NEON.</h2>
+            </div>
+
+            <div class="project-info">
+
+                <h3>Green Black Neon</h3>
+
+                <p>
+                    A futuristic design concept using
+                    dark backgrounds, neon green lighting,
+                    and glowing visual elements.
+                </p>
+
+                <span class="project-tag">
+                    NEON UI DESIGN
+                </span>
+
+            </div>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container reveal">
+
+    <div class="contact-box">
+
+        <div class="section-label">
+            04 / CONTACT
+        </div>
+
+        <h2>
+            Let's Build <span>Something.</span>
+        </h2>
+
+        <p>
+            Have a project idea or want to collaborate?
+            Let's connect and create something meaningful.
+        </p>
+
+        <a href="mailto:your-email@example.com"
+           class="btn primary">
+            GET IN TOUCH ↗
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+    © <span id="year"></span>
+    <span>KANTO WORKS.</span>
+    ALL RIGHTS RESERVED.
+
+</div>
+</footer>
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+    menuBtn.textContent =
+        navLinks.classList.contains("show") ? "✕" : "☰";
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+        menuBtn.textContent = "☰";
+
+    });
+
+});
+
+// SCROLL ANIMATION
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+// AUTOMATIC YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
