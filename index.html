@@ -2,1013 +2,692 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050b08">
-<meta name="description" content="KANTO WORKS - Web Developer Portfolio">
-<title>KANTO WORKS | Web Developer</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-    --bg: #050b08;
-    --panel: #0c1911;
-    --green: #39ff14;
-    --light-green: #a3ff7a;
-    --white: #f2fff4;
-    --gray: #91a495;
-    --border: rgba(57,255,20,.2);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'Space Grotesk', sans-serif;
-    overflow-x: hidden;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.container {
-    width: 88%;
-    max-width: 1150px;
-    margin: auto;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(57,255,20,.025) 1px, transparent 1px),
-        linear-gradient(90deg,rgba(57,255,20,.025) 1px, transparent 1px);
-    background-size: 50px 50px;
-}
-
-/* NAVBAR */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(5,11,8,.9);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-nav {
-    height: 76px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: var(--green);
-    text-shadow: 0 0 15px var(--green);
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--gray);
-    font-size: 13px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: var(--green);
-    text-shadow: 0 0 12px var(--green);
-}
-
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--green);
-    font-size: 27px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 130px 0 90px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 550px;
-    right: -150px;
-    top: 100px;
-    background: var(--green);
-    opacity: .07;
-    filter: blur(160px);
-    border-radius: 50%;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 16px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    color: var(--light-green);
-    font-size: 11px;
-    letter-spacing: 1px;
-    margin-bottom: 28px;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 12px var(--green);
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    50% { opacity: .3; }
-}
-
-.hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(45px,7vw,85px);
-    line-height: 1.12;
-    letter-spacing: -3px;
-    font-weight: 900;
-}
-
-.hero h1 span {
-    color: var(--green);
-    text-shadow: 0 0 20px rgba(57,255,20,.5);
-}
-
-.hero-subtitle {
-    color: var(--light-green);
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 22px;
-    letter-spacing: 3px;
-}
-
-.hero-content p {
-    color: var(--gray);
-    max-width: 570px;
-    line-height: 1.9;
-    margin: 22px 0 32px;
-    font-size: 15px;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 24px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-.primary {
-    background: var(--green);
-    color: #041006;
-    box-shadow: 0 0 20px rgba(57,255,20,.25);
-}
-
-.primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(57,255,20,.6);
-}
-
-.secondary {
-    border: 1px solid var(--border);
-    color: var(--green);
-}
-
-.secondary:hover {
-    background: rgba(57,255,20,.08);
-    border-color: var(--green);
-}
-
-/* PROFILE */
-
-.profile-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.profile-glow {
-    width: min(320px, 100%);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    padding: 8px;
-    background: conic-gradient(
-        var(--green),
-        #102b16,
-        var(--light-green),
-        #102b16,
-        var(--green)
-    );
-    box-shadow:
-        0 0 25px rgba(57,255,20,.4),
-        0 0 70px rgba(57,255,20,.15);
-    animation: glow 5s linear infinite;
-}
-
-@keyframes glow {
-    50% {
-        box-shadow:
-        0 0 40px rgba(57,255,20,.65),
-        0 0 90px rgba(57,255,20,.2);
-    }
-}
-
-.profile-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #07120b;
-    border: 5px solid #07120b;
-}
-
-.profile-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.profile-caption {
-    text-align: center;
-    margin-top: 25px;
-    color: var(--green);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-shadow: 0 0 12px var(--green);
-}
-
-/* GENERAL SECTIONS */
-
-section {
-    padding: 100px 0;
-}
-
-.section-label {
-    color: var(--green);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    margin-bottom: 16px;
-}
-
-.section-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(27px,5vw,42px);
-    margin-bottom: 20px;
-}
-
-.section-title span {
-    color: var(--green);
-}
-
-.section-desc {
-    color: var(--gray);
-    max-width: 650px;
-    line-height: 1.9;
-    margin-bottom: 40px;
-}
-
-/* ABOUT */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-text {
-    color: var(--gray);
-    line-height: 2;
-    font-size: 15px;
-}
-
-.about-card {
-    padding: 35px;
-    background: linear-gradient(145deg,#102218,#09130d);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
-
-.about-card h3 {
-    color: var(--green);
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 20px;
-}
-
-.about-card p {
-    color: var(--gray);
-    line-height: 2;
-    font-size: 14px;
-}
-
-/* SKILLS */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
-
-.skill-card {
-    padding: 30px;
-    border-radius: 9px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    transition: .3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--green);
-    box-shadow: 0 0 25px rgba(57,255,20,.1);
-}
-
-.skill-icon {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.skill-card h3 {
-    margin-bottom: 12px;
-}
-
-.skill-card p {
-    color: var(--gray);
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-/* PROJECTS */
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 25px;
-}
-
-.project-card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: .3s;
-}
-
-.project-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--green);
-    box-shadow: 0 0 25px rgba(57,255,20,.1);
-}
-
-.project-image {
-    height: 240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-image::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border: 1px solid rgba(57,255,20,.4);
-    transform: rotate(45deg);
-    box-shadow: 0 0 35px rgba(57,255,20,.15);
-}
-
-.project-image h2 {
-    position: relative;
-    z-index: 1;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
-    color: var(--green);
-    text-shadow: 0 0 18px var(--green);
-    letter-spacing: 3px;
-}
-
-.project-one {
-    background: radial-gradient(circle,#153d20,#050b08 75%);
-}
-
-.project-two {
-    background: radial-gradient(circle,#0c321d,#020704 75%);
-}
-
-.project-info {
-    padding: 27px;
-}
-
-.project-info h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.project-info p {
-    color: var(--gray);
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.project-tag {
-    display: inline-block;
-    margin-top: 18px;
-    color: var(--green);
-    border: 1px solid var(--border);
-    padding: 7px 12px;
-    border-radius: 4px;
-    font-size: 10px;
-    letter-spacing: 1px;
-}
-
-/* CONTACT */
-
-.contact-box {
-    padding: 65px 25px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: radial-gradient(circle at center,#102417,#08120c);
-    text-align: center;
-}
-
-.contact-box h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(26px,5vw,42px);
-    margin-bottom: 20px;
-}
-
-.contact-box h2 span {
-    color: var(--green);
-}
-
-.contact-box p {
-    max-width: 550px;
-    margin: 0 auto 30px;
-    color: var(--gray);
-    line-height: 1.8;
-}
-
-/* FOOTER */
-
-footer {
-    padding: 30px 0;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--gray);
-    font-size: 12px;
-}
-
-footer span {
-    color: var(--green);
-    font-weight: 700;
-}
-
-/* ANIMATIONS */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity .8s ease, transform .8s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #245a25;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--green);
-}
-
-/* MOBILE */
-
-@media(max-width:768px) {
-
-    .menu-btn {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 76px;
-        left: 0;
-        width: 100%;
-        background: #07110a;
-        padding: 15px 6%;
-        flex-direction: column;
-        gap: 0;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-        padding: 15px 0;
-    }
-
-    .hero-grid,
-    .about-grid,
-    .skills-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-grid {
-        text-align: center;
-    }
-
-    .hero-content p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .buttons {
-        justify-content: center;
-    }
-
-    .profile-wrapper {
-        grid-row: 1;
-        margin-bottom: 20px;
-    }
-
-    .profile-glow {
-        width: min(240px,75vw);
-    }
-
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-
-    section {
-        padding: 75px 0;
-    }
-}
-
-@media(prefers-reduced-motion:reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANTO WORKS | Web Developer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050b08;
+            --card: #0b1510;
+            --green: #39ff14;
+            --light-green: #a3ff7a;
+            --white: #f5fff5;
+            --gray: #a0aaa2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 8%;
+            background: rgba(5, 11, 8, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--green);
+            text-shadow: 0 0 15px rgba(57,255,20,0.7);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--gray);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+            text-shadow: 0 0 10px var(--green);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 27px;
+            color: var(--green);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(25px, 4vw, 38px);
+            color: var(--green);
+            text-shadow: 0 0 15px rgba(57,255,20,0.35);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            margin-top: 12px;
+        }
+
+        /* HOME */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding-top: 140px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-label {
+            color: var(--green);
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(40px, 7vw, 75px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--green);
+            text-shadow: 0 0 20px rgba(57,255,20,0.6);
+        }
+
+        .hero-content h3 {
+            font-size: 22px;
+            color: var(--light-green);
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            border: 1px solid var(--green);
+            border-radius: 5px;
+            color: var(--green);
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 0 12px rgba(57,255,20,0.12);
+        }
+
+        .btn:hover {
+            background: var(--green);
+            color: #051006;
+            box-shadow: 0 0 25px rgba(57,255,20,0.65);
+            transform: translateY(-3px);
+        }
+
+        .profile-container {
+            width: 310px;
+            height: 310px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            padding: 7px;
+            border: 2px solid var(--green);
+            box-shadow: 0 0 25px rgba(57,255,20,0.45),
+                        inset 0 0 20px rgba(57,255,20,0.2);
+            animation: glow 3s infinite alternate;
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #101b13;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 15px rgba(57,255,20,0.3);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(57,255,20,0.7);
+            }
+        }
+
+        /* ABOUT */
+
+        #about {
+            background: #08110c;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            color: var(--light-green);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            line-height: 2;
+        }
+
+        .about-box {
+            margin-top: 35px;
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid rgba(57,255,20,0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(57,255,20,0.05);
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid rgba(57,255,20,0.2);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--green);
+            box-shadow: 0 0 25px rgba(57,255,20,0.2);
+        }
+
+        .skill-card .icon {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .skill-card h3 {
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* PROJECTS */
+
+        #projects {
+            background: #08110c;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid rgba(57,255,20,0.2);
+            border-radius: 12px;
+            padding: 35px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--green);
+            box-shadow: 0 0 25px rgba(57,255,20,0.15);
+        }
+
+        .project-card .project-number {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--green);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 45px 25px;
+            text-align: center;
+            background: var(--card);
+            border: 1px solid rgba(57,255,20,0.3);
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(57,255,20,0.08);
+        }
+
+        .contact-box h3 {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .email {
+            color: var(--green);
+            display: block;
+            margin-top: 20px;
+            word-break: break-word;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(57,255,20,0.15);
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--green);
+        }
+
+        /* ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .profile-container {
+                width: 230px;
+                height: 230px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 6%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 25px;
+                background: #07100a;
+                flex-direction: column;
+                text-align: center;
+                gap: 22px;
+                border-bottom: 1px solid rgba(57,255,20,0.2);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            section {
+                padding: 85px 6%;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .profile-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">KANTO WORKS.</a>
 
-<header>
-<nav class="container">
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
 
-    <a href="#home" class="logo">
-        KANTO<span>WORKS.</span>
-    </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
-        ☰
-    </button>
+    <!-- HOME -->
+    <section id="home">
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#skills">SKILLS</a></li>
-        <li><a href="#projects">PROJECTS</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-    </ul>
+        <div class="hero-content reveal">
+            <div class="hero-label">WELCOME TO MY PORTFOLIO</div>
 
-</nav>
-</header>
+            <h1>
+                KANTO<br>
+                <span>WORKS.</span>
+            </h1>
 
-<main>
+            <h3>Web Developer</h3>
 
-<!-- HOME / PROFILE -->
+            <p>
+                Welcome to my personal portfolio. I create digital experiences
+                through creativity, design, and web development.
+                Explore my skills, projects, and work.
+            </p>
 
-<section class="hero" id="home">
-<div class="container">
-
-<div class="hero-grid">
-
-    <div class="hero-content reveal">
-
-        <div class="availability">
-            <span class="dot"></span>
-            WELCOME TO MY DIGITAL SPACE
+            <a href="#contact" class="btn">GET IN TOUCH ↗</a>
         </div>
 
-        <h1>
-            KANTO<br>
-            <span>WORKS.</span>
-        </h1>
-
-        <div class="hero-subtitle">
-            WEB DEVELOPER
+        <div class="profile-container reveal">
+            <img
+                src="https://plain-apac-prod-public.komododecks.com/202611/27/LMVbi7aJIx8CYjWAtN4n/image.png"
+                alt="KANTO WORKS Profile"
+                onerror="this.src='https://kommodo.ai/i/LMVbi7aJIx8CYjWAtN4n';"
+            >
         </div>
 
-        <p>
-            Turning creative ideas into digital experiences.
-            Building modern websites with clean designs,
-            innovative concepts, and attention to detail.
-            Welcome to KANTO WORKS.
-        </p>
+    </section>
 
-        <div class="buttons">
-            <a href="#projects" class="btn primary">
-                EXPLORE PROJECTS ↗
-            </a>
+    <!-- ABOUT -->
+    <section id="about">
 
-            <a href="#about" class="btn secondary">
-                ABOUT ME
-            </a>
+        <div class="section-title reveal">
+            <h2>ABOUT ME</h2>
+            <p>Get to know more about me</p>
         </div>
 
-    </div>
+        <div class="about-content reveal">
 
-    <!-- PROFILE IMAGE -->
+            <h3>EMIEL JUNE</h3>
 
-    <div class="profile-wrapper reveal">
+            <p>
+                I am a Web Developer interested in creating websites
+                with clean layouts, creative designs, and modern features.
+                I enjoy learning new technologies and improving my skills
+                through different projects.
+            </p>
 
-        <div>
-            <div class="profile-glow">
-                <div class="profile-inner">
-
-                    <img
-                    src="https://plain-apac-prod-public.komododecks.com/202611/27/LMVbi7aJIx8CYjWAtN4n/image.png"
-                    alt="KANTO WORKS Profile Logo"
-                    onerror="this.onerror=null;this.src='https://kommodo.ai/i/LMVbi7aJIx8CYjWAtN4n';"
-                    >
-
-                </div>
+            <div class="about-box">
+                <h3>KANTO WORKS</h3>
+                <p>
+                    Turning ideas into digital experiences.
+                    Creativity starts here.
+                </p>
             </div>
 
-            <div class="profile-caption">
-                KANTO WORKS
-            </div>
         </div>
 
-    </div>
+    </section>
 
-</div>
-</div>
-</section>
+    <!-- SKILLS -->
+    <section id="skills">
 
-<!-- ABOUT -->
-
-<section id="about">
-<div class="container reveal">
-
-    <div class="section-label">01 / ABOUT</div>
-
-    <h2 class="section-title">
-        About <span>KANTO WORKS.</span>
-    </h2>
-
-    <div class="about-grid">
-
-        <div class="about-text">
-
-            KANTO WORKS is a personal web development
-            brand focused on creating modern, functional,
-            and visually engaging digital experiences.
-
-            <br><br>
-
-            I enjoy exploring web technologies, developing
-            creative concepts, and transforming ideas into
-            meaningful online projects.
-
-            <br><br>
-
-            My approach combines creativity, continuous
-            learning, and attention to detail.
-
+        <div class="section-title reveal">
+            <h2>MY SKILLS</h2>
+            <p>Technologies I work with and continue learning</p>
         </div>
 
-        <div class="about-card">
+        <div class="skills-grid">
 
-            <h3>KANTO WORKS.</h3>
-
-            <p>
-                NAME: EMIEL JUNE<br>
-                POSITION: WEB DEVELOPER<br>
-                FOCUS: WEB DEVELOPMENT<br>
-                STYLE: DARK / NEON<br>
-                BRAND: KANTO WORKS
-            </p>
-
-        </div>
-
-    </div>
-</div>
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-<div class="container reveal">
-
-    <div class="section-label">02 / EXPERTISE</div>
-
-    <h2 class="section-title">
-        My <span>Skills.</span>
-    </h2>
-
-    <p class="section-desc">
-        Technologies and creative areas I am exploring
-        and developing.
-    </p>
-
-    <div class="skills-grid">
-
-        <div class="skill-card">
-            <div class="skill-icon">🌐</div>
-            <h3>HTML</h3>
-            <p>
-                Creating the structure and foundation
-                of modern websites.
-            </p>
-        </div>
-
-        <div class="skill-card">
-            <div class="skill-icon">🎨</div>
-            <h3>CSS</h3>
-            <p>
-                Designing layouts, responsive interfaces,
-                and visual experiences.
-            </p>
-        </div>
-
-        <div class="skill-card">
-            <div class="skill-icon">⚡</div>
-            <h3>JavaScript</h3>
-            <p>
-                Adding interactive features and dynamic
-                functionality to websites.
-            </p>
-        </div>
-
-    </div>
-</div>
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-<div class="container reveal">
-
-    <div class="section-label">03 / PORTFOLIO</div>
-
-    <h2 class="section-title">
-        Featured <span>Projects.</span>
-    </h2>
-
-    <p class="section-desc">
-        A collection of creative concepts and development work.
-    </p>
-
-    <div class="projects-grid">
-
-        <article class="project-card">
-
-            <div class="project-image project-one">
-                <h2>KANTO<br>WEB DEV.</h2>
+            <div class="skill-card reveal">
+                <div class="icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Building the structure of websites.</p>
             </div>
 
-            <div class="project-info">
+            <div class="skill-card reveal">
+                <div class="icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Creating layouts, colors, and visual designs.</p>
+            </div>
 
+            <div class="skill-card reveal">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Adding interactions and dynamic features.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title reveal">
+            <h2>MY PROJECTS</h2>
+            <p>Some of my work and creative concepts</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card reveal">
+                <div class="project-number">PROJECT 01</div>
                 <h3>Web Development</h3>
-
                 <p>
-                    Website development focused on modern
-                    layouts, responsive design, and
-                    user-friendly interfaces.
+                    Website development focused on clean layouts,
+                    responsive design, and user-friendly experiences.
                 </p>
-
-                <span class="project-tag">
-                    HTML / CSS / JAVASCRIPT
-                </span>
-
-            </div>
-        </article>
-
-        <article class="project-card">
-
-            <div class="project-image project-two">
-                <h2>GREEN<br>BLACK NEON.</h2>
             </div>
 
-            <div class="project-info">
-
+            <div class="project-card reveal">
+                <div class="project-number">PROJECT 02</div>
                 <h3>Green Black Neon</h3>
-
                 <p>
-                    A futuristic design concept using
-                    dark backgrounds, neon green lighting,
-                    and glowing visual elements.
+                    A dark-themed design concept featuring neon green
+                    accents, glowing effects, and modern visuals.
                 </p>
-
-                <span class="project-tag">
-                    NEON UI DESIGN
-                </span>
-
             </div>
-        </article>
 
-    </div>
-</div>
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-<div class="container reveal">
-
-    <div class="contact-box">
-
-        <div class="section-label">
-            04 / CONTACT
         </div>
 
-        <h2>
-            Let's Build <span>Something.</span>
-        </h2>
+    </section>
 
-        <p>
-            Have a project idea or want to collaborate?
-            Let's connect and create something meaningful.
-        </p>
+    <!-- CONTACT -->
+    <section id="contact">
 
-        <a href="mailto:your-emieljune79@gmail.com.com"
-           class="btn primary">
-            GET IN TOUCH ↗
-        </a>
+        <div class="section-title reveal">
+            <h2>CONTACT ME</h2>
+            <p>Let's connect and work together</p>
+        </div>
 
-    </div>
+        <div class="contact-box reveal">
 
-</div>
-</section>
+            <h3>Let's Build Something Great.</h3>
 
-</main>
+            <p>
+                Have a project or an idea in mind?
+                Feel free to contact me through email.
+            </p>
 
-<!-- FOOTER -->
+            <a
+                href="mailto:emieljune79@gmail.com"
+                class="btn"
+            >
+                GET IN TOUCH ↗
+            </a>
 
-<footer>
-<div class="container">
+            <a
+                href="mailto:emieljune79@gmail.com"
+                class="email"
+            >
+                emieljune79@gmail.com
+            </a>
 
-    © <span id="year"></span>
-    <span>KANTO WORKS.</span>
-    ALL RIGHTS RESERVED.
+        </div>
 
-</div>
-</footer>
+    </section>
 
-<script>
+    <!-- FOOTER -->
+    <footer>
+        © <span id="year"></span> KANTO WORKS. All Rights Reserved.
+    </footer>
 
-// MOBILE NAVIGATION
+    <!-- JAVASCRIPT -->
+    <script>
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+        // MOBILE MENU
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", () => {
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
 
-    navLinks.classList.toggle("show");
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("show");
+            });
+        });
 
-    menuBtn.textContent =
-        navLinks.classList.contains("show") ? "✕" : "☰";
+        // AUTOMATIC YEAR
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
-});
+        // SCROLL REVEAL
+        const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
 
-    link.addEventListener("click", () => {
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
 
-        navLinks.classList.remove("show");
-        menuBtn.textContent = "☰";
-
-    });
-
-});
-
-// SCROLL ANIMATION
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-
-        }
-
-    });
-
-}, {
-    threshold: 0.12
-});
-
-document.querySelectorAll(".reveal").forEach(element => {
-    observer.observe(element);
-});
-
-// AUTOMATIC YEAR
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-</script>
+    </script>
 
 </body>
 </html>
